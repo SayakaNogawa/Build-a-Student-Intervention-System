@@ -505,11 +505,7 @@ Feature values:
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
 
 <span class="c"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">num_test</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="c">#X_train = </span>
-<span class="c">#X_test = </span>
-<span class="c">#y_train =</span>
-<span class="c">#y_test = </span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">num_test</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c"># Show the results of the split</span>
 <span class="k">print</span> <span class="s">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -601,7 +597,7 @@ Testing set has 95 samples.
 <p>Strengths :</p>
 <ul>
 <li>It is easy and fast to predict class of test data set.</li>
-<li>When I think about a target level, the Naive Bayes algorithm does not depend on other predictive children for the distribution of each　predictive child.</li>
+<li>When I think about a target level, the Naive Bayes algorithm does not depend on other predictive children for the distribution of each predictive child.</li>
 </ul>
 <p>Weakneses :</p>
 <ul>
@@ -706,7 +702,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c"># TODO: Import the three supervised learning models from sklearn</span>
@@ -720,8 +716,8 @@ Testing set has 95 samples.
 <span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
 
 <span class="c"># TODO: Initialize the three models</span>
-<span class="n">clf_A</span> <span class="o">=</span><span class="n">SVC</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span><span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">clf_A</span> <span class="o">=</span><span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span><span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">clf_C</span> <span class="o">=</span><span class="n">GaussianNB</span><span class="p">()</span>
 
 <span class="c"># TODO: Set up the training set sizes</span>
@@ -735,6 +731,7 @@ Testing set has 95 samples.
 <span class="n">y_train_300</span> <span class="o">=</span> <span class="n">y_train</span>
 
 <span class="c"># TODO: Execute the &#39;train_predict&#39; function for each classifier and each training set size</span>
+<span class="c">#clf_A</span>
 <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_100</span><span class="p">,</span> <span class="n">y_train_100</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_200</span><span class="p">,</span> <span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_A</span><span class="p">,</span> <span class="n">X_train_300</span><span class="p">,</span> <span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
@@ -761,61 +758,61 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a SVC using a training set size of 100. . .
-Trained model in 0.0016 seconds
-Made predictions in 0.0014 seconds.
-F1 score for training set: 0.8591.
-Made predictions in 0.0012 seconds.
-F1 score for test set: 0.7838.
-Training a SVC using a training set size of 200. . .
-Trained model in 0.0045 seconds
-Made predictions in 0.0032 seconds.
-F1 score for training set: 0.8693.
+Trained model in 0.0024 seconds
 Made predictions in 0.0013 seconds.
-F1 score for test set: 0.7755.
+F1 score for training set: 0.8777.
+Made predictions in 0.0009 seconds.
+F1 score for test set: 0.7746.
+Training a SVC using a training set size of 200. . .
+Trained model in 0.0088 seconds
+Made predictions in 0.0021 seconds.
+F1 score for training set: 0.8679.
+Made predictions in 0.0011 seconds.
+F1 score for test set: 0.7815.
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0075 seconds
-Made predictions in 0.0066 seconds.
-F1 score for training set: 0.8692.
-Made predictions in 0.0018 seconds.
-F1 score for test set: 0.7586.
+Trained model in 0.0060 seconds
+Made predictions in 0.0048 seconds.
+F1 score for training set: 0.8761.
+Made predictions in 0.0024 seconds.
+F1 score for test set: 0.7838.
 -------------------------------------------------------------------------
 Training a RandomForestClassifier using a training set size of 100. . .
-Trained model in 0.0070 seconds
-Made predictions in 0.0008 seconds.
-F1 score for training set: 0.9921.
+Trained model in 0.0091 seconds
+Made predictions in 0.0016 seconds.
+F1 score for training set: 0.9844.
 Made predictions in 0.0007 seconds.
-F1 score for test set: 0.6614.
+F1 score for test set: 0.7153.
 Training a RandomForestClassifier using a training set size of 200. . .
-Trained model in 0.0065 seconds
-Made predictions in 0.0023 seconds.
-F1 score for training set: 0.9888.
-Made predictions in 0.0019 seconds.
-F1 score for test set: 0.7391.
-Training a RandomForestClassifier using a training set size of 300. . .
-Trained model in 0.0070 seconds
+Trained model in 0.0075 seconds
 Made predictions in 0.0013 seconds.
-F1 score for training set: 0.9976.
-Made predictions in 0.0022 seconds.
-F1 score for test set: 0.7419.
+F1 score for training set: 0.9964.
+Made predictions in 0.0028 seconds.
+F1 score for test set: 0.7857.
+Training a RandomForestClassifier using a training set size of 300. . .
+Trained model in 0.0076 seconds
+Made predictions in 0.0012 seconds.
+F1 score for training set: 0.9951.
+Made predictions in 0.0030 seconds.
+F1 score for test set: 0.7907.
 -------------------------------------------------------------------------
 Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0015 seconds
-Made predictions in 0.0005 seconds.
-F1 score for training set: 0.8550.
-Made predictions in 0.0005 seconds.
-F1 score for test set: 0.7481.
+Trained model in 0.0020 seconds
+Made predictions in 0.0008 seconds.
+F1 score for training set: 0.8467.
+Made predictions in 0.0012 seconds.
+F1 score for test set: 0.8029.
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0008 seconds
-Made predictions in 0.0005 seconds.
-F1 score for training set: 0.8321.
+Trained model in 0.0006 seconds
 Made predictions in 0.0003 seconds.
-F1 score for test set: 0.7132.
+F1 score for training set: 0.8406.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.7244.
 Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0011 seconds
-Made predictions in 0.0005 seconds.
-F1 score for training set: 0.8088.
+Trained model in 0.0006 seconds
 Made predictions in 0.0003 seconds.
-F1 score for test set: 0.7500.
+F1 score for training set: 0.8038.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.7634.
 </pre>
 </div>
 </div>
@@ -852,24 +849,24 @@ F1 score for test set: 0.7500.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0016</td>
-<td style="text-align:center">0.0012</td>
-<td style="text-align:center">0.8591</td>
-<td style="text-align:center">0.7838</td>
+<td style="text-align:center">0.0024</td>
+<td style="text-align:center">0.0009</td>
+<td style="text-align:center">0.8777</td>
+<td style="text-align:center">0.7746</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0045</td>
-<td style="text-align:center">0.0013</td>
-<td style="text-align:center">0.8693</td>
-<td style="text-align:center">0.7755</td>
+<td style="text-align:center">0.0088</td>
+<td style="text-align:center">0.0011</td>
+<td style="text-align:center">0.8679</td>
+<td style="text-align:center">0.7815</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0075</td>
-<td style="text-align:center">0.0018</td>
-<td style="text-align:center">0.8692</td>
-<td style="text-align:center">0.7586</td>
+<td style="text-align:center">0.0060</td>
+<td style="text-align:center">0.0024</td>
+<td style="text-align:center">0.8761</td>
+<td style="text-align:center">0.7838</td>
 </tr>
 </tbody>
 </table>
@@ -886,24 +883,24 @@ F1 score for test set: 0.7500.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0070</td>
+<td style="text-align:center">0.0091</td>
 <td style="text-align:center">0.0007</td>
-<td style="text-align:center">0.9921</td>
-<td style="text-align:center">0.6614</td>
+<td style="text-align:center">0.9844</td>
+<td style="text-align:center">0.7153</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0065</td>
-<td style="text-align:center">0.0019</td>
-<td style="text-align:center">0.9888</td>
-<td style="text-align:center">0.7391</td>
+<td style="text-align:center">0.0075</td>
+<td style="text-align:center">0.0028</td>
+<td style="text-align:center">0.9964</td>
+<td style="text-align:center">0.7857</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0070</td>
-<td style="text-align:center">0.0022</td>
-<td style="text-align:center">0.9976</td>
-<td style="text-align:center">0.7419</td>
+<td style="text-align:center">0.0076</td>
+<td style="text-align:center">0.0030</td>
+<td style="text-align:center">0.9951</td>
+<td style="text-align:center">0.7907</td>
 </tr>
 </tbody>
 </table>
@@ -920,24 +917,24 @@ F1 score for test set: 0.7500.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0015</td>
-<td style="text-align:center">0.0005</td>
-<td style="text-align:center">0.8550</td>
-<td style="text-align:center">0.7481</td>
+<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.0012</td>
+<td style="text-align:center">0.8467</td>
+<td style="text-align:center">0.8029</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0008</td>
-<td style="text-align:center">0.0003</td>
-<td style="text-align:center">0.8321</td>
-<td style="text-align:center">0.7132</td>
+<td style="text-align:center">0.0006</td>
+<td style="text-align:center">0.0002</td>
+<td style="text-align:center">0.8406</td>
+<td style="text-align:center">0.7244</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0011</td>
-<td style="text-align:center">0.0003</td>
-<td style="text-align:center">0.8088</td>
-<td style="text-align:center">0.7500</td>
+<td style="text-align:center">0.0006</td>
+<td style="text-align:center">0.0002</td>
+<td style="text-align:center">0.8038</td>
+<td style="text-align:center">0.7634</td>
 </tr>
 </tbody>
 </table>
@@ -971,8 +968,8 @@ F1 score for test set: 0.7500.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>I think the best model in this case is Support Vector Machines.
-SVM provides the best performance without overfitting the dataset. When I compare Random Forest with SVM, Random Forest is clearly overfitting. Naive Bayes is the most fast of the training time and testing time, but I place priority on the higher performance. This is because the purpose of this problem is find of the students who might need early intervention before they fail to graduate. So we need an accurate prediction.</p>
+<p>I think the best model in this case is the Support Vector Machines.
+The SVM provides the best performance without overfitting the dataset. When I compare the Random Forest with the SVM, the Random Forest is clearly overfitting. The Naive Bayes is the most fast of the training time and testing time, but I place priority on the higher performance. This is because the purpose of this problem is find of the students who might need early intervention before they fail to graduate. So we need an accurate prediction.</p>
 
 </div>
 </div>
@@ -993,7 +990,9 @@ SVM provides the best performance without overfitting the dataset. When I compar
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-SVM is based on the concept of decision lines that define decision boundaries. A decision line is one that separates between different sets of objects. SVM choose the best decision line where the distance between that line and the nearest observations of differing classes are the largest. And SVM learn the classifying of these sets. The real purpose of the learning is not to separate data given in advance , but to separate data of unknown.</p>
+The SVM takes data about past students (age, gender, family, etc), and uses them to create a function that draws a boundary between the students who graduated and those who did not. The boundary should be drawn so as to maximize the margin　and in the middle.
+Often, though, it's not easy to draw a decision boundary in low dimensions, so the SVM separates the passing and failing students by translating the data. In this new setting, the mapped objects is linearly separable and, instead of constructing the complex curve, all we have to do is to find an optimal line that can separate the passing and failing students.</p>
+<p>Using this function created with students we already know graduated or not, the SVM can look at new students' data and predict whether students pass or fail.</p>
 
 </div>
 </div>
@@ -1024,7 +1023,7 @@ SVM is based on the concept of decision lines that define decision boundaries. A
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
@@ -1032,10 +1031,10 @@ SVM is based on the concept of decision lines that define decision boundaries. A
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
 
 <span class="c"># TODO: Create the parameters list you wish to tune</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;rbf&#39;</span><span class="p">],</span> <span class="s">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]}</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">C</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>
 
 <span class="c"># TODO: Initialize the classifier</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c"># TODO: Make an f1 scoring function using &#39;make_scorer&#39; </span>
 <span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="s">&#39;yes&#39;</span><span class="p">)</span>
@@ -1052,6 +1051,7 @@ SVM is based on the concept of decision lines that define decision boundaries. A
 <span class="c"># Report the final F1 score for training and testing after parameter tuning</span>
 <span class="k">print</span> <span class="s">&quot;Tuned model has a training F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
 <span class="k">print</span> <span class="s">&quot;Tuned model has a testing F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">clf</span>
 </pre></div>
 
 </div>
@@ -1064,10 +1064,13 @@ SVM is based on the concept of decision lines that define decision boundaries. A
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0037 seconds.
-Tuned model has a training F1 score of 0.8434.
-Made predictions in 0.0013 seconds.
-Tuned model has a testing F1 score of 0.7862.
+<pre>Made predictions in 0.0041 seconds.
+Tuned model has a training F1 score of 0.8323.
+Made predictions in 0.0015 seconds.
+Tuned model has a testing F1 score of 0.7945.
+SVC(C=100.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
+  gamma=0.0001, kernel=&apos;rbf&apos;, max_iter=-1, probability=False,
+  random_state=42, shrinking=True, tol=0.001, verbose=False)
 </pre>
 </div>
 </div>
@@ -1093,19 +1096,30 @@ Tuned model has a testing F1 score of 0.7862.
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li><p>Training 
-Final : 0.8434<br>
-untuned : 0.8693</p>
-</li>
-<li><p>Testing
-Final : 0.7862<br>
-untuned : 0.7755</p>
-</li>
+<li>Training </li>
 </ul>
+<p>Final : 0.8323 / untuned : 0.8679</p>
+<ul>
+<li>Testing</li>
+</ul>
+<p>Final : 0.7945 / untuned : 0.7815</p>
 <p>The final model's F1 score for testing score is better than untuned model.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
